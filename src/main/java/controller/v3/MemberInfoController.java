@@ -6,13 +6,14 @@ import member.vo.MemberList;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.util.Map;
+import java.util.*;
 
 public class MemberInfoController implements Controller {
     @Override
     public ModelView process(Map<String,String> param) {
-
-        return new ModelView("/jstl/memberInfo.jsp");
+        ModelView modelView = new ModelView("/jstl/memberInfo.jsp");
+        modelView.setMemberList(MemberList.memberList);
+        return modelView;
 
     }
 }

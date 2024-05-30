@@ -15,7 +15,7 @@ public class MvcMemberInfoServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Member member = new Member("jji",29);
+        Member member = new Member();
 
         req.setAttribute("member", member);
         String viewPath = "/jstl/memberInfo.jsp";

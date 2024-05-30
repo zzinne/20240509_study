@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MemberSaveController implements Controller {
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp) {
-        Member member = new Member("jji",26);
+        Member member = new Member();
         member.setName(req.getParameter("name"));
         member.setAge(Integer.parseInt(req.getParameter("age")));
 

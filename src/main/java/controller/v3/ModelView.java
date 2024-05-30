@@ -1,30 +1,29 @@
 package controller.v3;
 
+import member.vo.Member;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class ModelView {
     private String viewPath;
-    private Map<String, Objects> model = new HashMap<>();
-
+    private List<Member> memberList;
 
     public ModelView(String viewPath) {
         this.viewPath = viewPath;
 
     }
 
-    public Map<String, Objects> getModel() {
-        return model;
+    public List<Member> getMemberList() {
+        return memberList;
     }
 
-    public void setModel(Map<String, Objects> model) {
-        this.model = model;
+    public void setMemberList(List<Member> memberList) {
+        this.memberList = memberList;
     }
 
     public String getViewPath() {
@@ -37,7 +36,9 @@ public class ModelView {
 
     public void render(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher(viewPath);
-        req.setAttribute("model", model);
+        if(memberList != null) {
+            req.setAttribute("members", memberList);
+        }
         dispatcher.forward(req,res);
 
     }

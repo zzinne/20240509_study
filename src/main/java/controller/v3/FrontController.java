@@ -2,6 +2,7 @@ package controller.v3;
 
 import controller.v3.Controller;
 import controller.v3.MemberInfoController;
+import controller.v3.MemberSaveController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +18,11 @@ public class FrontController extends HttpServlet {
 
     private Map<String, Controller> map = new HashMap<>();
 
-    public FrontController(Map<String, Controller> map) {
+    public FrontController() {
         map.put("/front-controller/member3/retrieve", new MemberInfoController() );
-//        map.put("/front-controller/member/save", new MemberSaveController() );
+        map.put("/front-controller/member3/save", new MemberSaveController() );
+        map.put("/front-controller/member3/delete", new MemberDeleteController() );
+        map.put("/front-controller/member3/regist", new MemberRegistController() );
     }
 
     @Override
@@ -27,7 +30,7 @@ public class FrontController extends HttpServlet {
         Controller controller = map.get(req.getRequestURI());
         Map<String, String> paramMap = createParameterMap(req);
         ModelView modelView = controller.process(paramMap);
-
+        modelView.render(req,resp);
 
     }
 

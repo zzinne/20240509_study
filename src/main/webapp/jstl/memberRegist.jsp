@@ -11,17 +11,18 @@
     <title>Title</title>
 </head>
 <body>
-
+<form action="/front-controller/member3/save">
 <table>
     <tr>
         <td>
-            이름 = ${member.name}
+            이름 = <input type="text" name="name">
         </td>
         <td>
-            나이 = ${member.age}
+            나이 = <input type="text" name="age">
         </td>
     </tr>
 </table>
-
+    <input type="submit" value="등록" alt="등록">
+</form>
 </body>
 </html>

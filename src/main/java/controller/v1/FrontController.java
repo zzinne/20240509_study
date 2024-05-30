@@ -16,7 +16,7 @@ public class FrontController extends HttpServlet {
 
     private Map<String, Controller> map = new HashMap<>();
 
-    public FrontController(Map<String, Controller> map) {
+    public FrontController() {
         map.put("/front-controller/member/retrieve", new MemberInfoController() );
         map.put("/front-controller/member/save", new MemberSaveController() );
     }

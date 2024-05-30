@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RegistMemberServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Member member = new Member("",26);
+        Member member = new Member();
         member.setName(req.getParameter("name"));
         member.setAge(Integer.parseInt(req.getParameter("age")));
 
